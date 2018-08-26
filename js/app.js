@@ -18,20 +18,22 @@ let listOfCards = [
     "fa-cube"
 ]
 
+
 let openCards = [];
 let matchedCards = [];
 let moveCount = 0;
 let time = 0;
 let timeIndex = 0;
+let star = 3;
 let timing;
 
 
 //create and add card html
-function createCardHtml(){
+function createCardHtml() {
 
     listOfCards = shuffle(listOfCards);
     let fragment = document.createDocumentFragment();
-    
+
     for (var x = 0; x < listOfCards.length; x++) {
         console.log(listOfCards[x]);
         let li = document.createElement("LI");
@@ -46,11 +48,12 @@ function createCardHtml(){
         li.appendChild(i);
         fragment.appendChild(li);
     }
-    
+
     document.querySelector(".deck").appendChild(fragment);
 
 }
 
+//call function to create card html
 createCardHtml();
 
 
@@ -60,28 +63,35 @@ restart.addEventListener("click", reset)
 
 
 //reset game
-function reset(){
+function reset() {
+    //reset card
     let cards = document.querySelectorAll(".card");
-    for(card of cards){
+    for (card of cards) {
         card.remove();
     }
     openCards = [];
     matchedCards = [];
     moveCount = 0;
+    createCardHtml();
+    //reset time
     time = 0;
     timeIndex = 0;
-    createCardHtml();
-    clearInterval(timing);
     document.querySelector(".timer").innerHTML = " 00:00";
+    clearInterval(timing);
     document.querySelector(".moves").innerHTML = moveCount;
+    star = 3;
+    let allStars = document.querySelectorAll(".fa-star");
+    for (oneStar of allStars) {
+        oneStar.classList.remove("star-hide");
+    }
 }
+
 //reload the browser when play again is clicked
-function reload(){
+function reload() {
 
     window.location.reload();
 
 }
-
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -99,25 +109,14 @@ function shuffle(array) {
 
 }
 
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
-
 
 //display card symbol when called
 function displayCardSymbol(e) {
-    if(timeIndex === 0){
-        ++timeIndex; 
+    if (timeIndex === 0) {
+        ++timeIndex;
         startTime();
     }
-    if (e.target && e.target.matches("li") && (!(e.target.classList.contains("match")) && (!(e.target.classList.contains("show")))))  {
+    if (e.target && e.target.matches("li") && (!(e.target.classList.contains("match")) && (!(e.target.classList.contains("show"))))) {
         e.target.classList.add("show");
         openCard(e);
     }
@@ -149,7 +148,7 @@ function openCard(e) {
             removeFromOpen();
         }
     }
-    
+
 }
 
 //to locked matched card 
@@ -157,7 +156,7 @@ function lockedPositionOnMatch(_cardName) {
 
     const cardClass = getClass(_cardName);
     let chosenCards = document.querySelectorAll(cardClass);
-    for(chosenCard of chosenCards){
+    for (chosenCard of chosenCards) {
         chosenCard.parentNode.setAttribute("class", "card")
         chosenCard.parentNode.classList.add("match", "match-anim");
         matchedCards.push(_cardName);
@@ -180,13 +179,13 @@ function getClass(_cardName) {
 function removeFromOpen() {
 
     const openedCards = document.querySelectorAll(".open");
-    for(let j = 0; j < 2; j++){
-        
-        setTimeout(function(){
+    for (let j = 0; j < 2; j++) {
+
+        setTimeout(function () {
             openedCards[j].classList.add("miss-match");
             openedCards[j].classList.add("miss-anim");
         }, 200);
-        setTimeout(function(){
+        setTimeout(function () {
             openedCards[j].setAttribute("class", "card");
         }, 700);
     }
@@ -196,21 +195,21 @@ function removeFromOpen() {
 }
 
 //increment move and add to diplay
-function moveCounter (){ 
-    
+function moveCounter() {
+
     document.querySelector(".moves").innerHTML = ++moveCount;
 
 }
 
 //show winner board when cards have matched
-function checkedMactched(){
+function checkedMactched() {
 
-    if (matchedCards.length === listOfCards.length){
+    if (matchedCards.length === listOfCards.length) {
         let modalText = document.querySelector(".modal-text");
         modalText.innerHTML = `
             <strong>Congratulations! You Won!</strong>
             <br/>
-            <br/>with ${moveCount} moves and 1 Stars
+            <br/>with ${moveCount} moves and ${star} Stars
             <br/>
             <strong>Time</strong>: ${getMinAndSecs(time)}
             <br/> Wooooow!`;
@@ -218,8 +217,6 @@ function checkedMactched(){
         setTimeout(toggleModal, 1000);
         clearInterval(timing);
     }
-
-    
 
 }
 
@@ -233,18 +230,19 @@ function toggleModal(event) {
 //close modal by click window area if modal is showing
 function windowOnClick(event) {
     if (event.target === modal) {
-      toggleModal();
+        toggleModal();
     }
 }
 
 //calls timer every 1 second
-function startTime(){
+function startTime() {
     timing = setInterval(timer, 1000);
 }
 
 //incrementing every one second
 function timer() {
     time++;
+    starRating();
     let li = document.querySelector(".timer");
     li.innerHTML = getMinAndSecs(time);
 }
@@ -255,22 +253,33 @@ function getMinAndSecs(time) {
     let seconds = time % 60;
     let minutes = Math.floor(time / 60);
     if (seconds < 10) {
-        seconds = "0"+seconds;
+        seconds = "0" + seconds;
     }
-    if (minutes < 1){
+    if (minutes < 1) {
         minutes = "00";
-    } else if (minutes < 10){
-        minutes = "0"+minutes
+    } else if (minutes < 10) {
+        minutes = "0" + minutes
     }
 
     return ` ${minutes}:${seconds}`;
 
 }
 
-
 //star rating 
-function starRating(){
+function starRating() {
 
-    
+    if ((time > 40) && (star === 3)) {
+        star--;
+        let firstStar = document.querySelectorAll(".fa-star")[0];
+        firstStar.classList.add("star-hide");
+    } else if ((time > 80) && (star === 2)) {
+        star--;
+        let secondStar = document.querySelectorAll(".fa-star")[1]
+        secondStar.classList.toggle("star-hide");
+    } else if ((time > 130) && (star === 1)) {
+        star--;
+        let thirdStar = document.querySelectorAll(".fa-star")[2]
+        thirdStar.classList.toggle("star-hide");
+    }
 
 }

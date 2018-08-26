@@ -17,6 +17,11 @@ Load the index.html file on your browser. Once loaded you can click any card fro
 [Pixel-Art-Maker-Project](https://github.com/stephendoyin/fend-project-memory-game/)
 
 
+###Dependency
+
+[Online Css Auto-Prefixer](https://autoprefixer.github.io/)
+
+
 ### Star Rating
 
 3 Stars = Time is less than 40 and moves made is less than 13

@@ -1,4 +1,5 @@
 //list that holds all of your cards
+
 let listOfCards = [
     "fa-diamond",
     "fa-paper-plane-o",

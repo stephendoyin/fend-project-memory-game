@@ -35,7 +35,6 @@ function createCardHtml() {
     let fragment = document.createDocumentFragment();
 
     for (var x = 0; x < listOfCards.length; x++) {
-        console.log(listOfCards[x]);
         let li = document.createElement("LI");
         attr1 = document.createAttribute("class");
         attr1.value = "card";
@@ -268,15 +267,15 @@ function getMinAndSecs(time) {
 //star rating 
 function starRating() {
 
-    if ((time > 40) && (star === 3)) {
+    if ((time > 40) && (star === 3) && (moveCount < 13)) {
         star--;
         let firstStar = document.querySelectorAll(".fa-star")[0];
         firstStar.classList.add("star-hide");
-    } else if ((time > 80) && (star === 2)) {
+    } else if ((time > 80) && (star === 2) && (moveCount < 20)) {
         star--;
         let secondStar = document.querySelectorAll(".fa-star")[1]
         secondStar.classList.toggle("star-hide");
-    } else if ((time > 130) && (star === 1)) {
+    } else if ((time > 130) && (star === 1) && (moveCount < 30)) {
         star--;
         let thirdStar = document.querySelectorAll(".fa-star")[2]
         thirdStar.classList.toggle("star-hide");

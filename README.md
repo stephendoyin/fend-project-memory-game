@@ -1,20 +1,30 @@
-# Memory Game Project
+# Match Memory Game
+Vanilla Js written match memory game for the browser
 
-## Table of Contents
+## Prerequisites
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+To view the memory match game, you may use the current version of Edge, Firefox or Chrome.
 
-## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+### How to Play
 
-To get started, open `js/app.js` and start building out the app's functionality
+Load the index.html file on your browser. Once loaded you can click any card from the list of cards to reveal the the other side, the time starts immediately you click to indicate the time the match game starts. The intent is to reveal a trailing match of cards from the list of cards on the deck till there is no more card to uncovered.
+ 
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+### Link
 
-## Contributing
+[Pixel-Art-Maker-Project](https://github.com/stephendoyin/fend-project-memory-game/)
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+### Star Rating
+
+3 Stars = Time is less than 40 and moves made is less than 13
+2 Stars = Time is less than 80 and moves made is less than 20 
+1 Stars = Time is less than 130 and moves made is less than 30
+0 Stars = Doesn't meet any of the criterias above.
+
+
+### Acknowledgements
+
+* Starter template delivered by [Udacity](https://www.udacity.com/).
+ 

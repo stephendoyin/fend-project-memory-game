@@ -271,15 +271,15 @@ function getMinAndSecs(time) {
 //star rating 
 function starRating() {
 
-    if ((time > 40) && (star === 3) && (moveCount < 13)) {
+    if ((star === 3) && (moveCount > 13)) {
         star--;
         let firstStar = document.querySelectorAll(".fa-star")[0];
         firstStar.classList.add("star-hide");
-    } else if ((time > 80) && (star === 2) && (moveCount < 20)) {
+    } else if ((star === 2) && (moveCount > 20)) {
         star--;
         let secondStar = document.querySelectorAll(".fa-star")[1]
         secondStar.classList.toggle("star-hide");
-    } else if ((time > 130) && (star === 1) && (moveCount < 30)) {
+    } else if ((star === 1) && (moveCount > 30)) {
         star--;
         let thirdStar = document.querySelectorAll(".fa-star")[2]
         thirdStar.classList.toggle("star-hide");

@@ -25,9 +25,9 @@ Load the index.html file on your browser. Once loaded you can click any card fro
 
 ### Star Rating
 
-3 Stars = Time is less than 40 and moves made is less than 13
-2 Stars = Time is less than 80 and moves made is less than 20 
-1 Stars = Time is less than 130 and moves made is less than 30
+3 Stars = moves made is MORE than 13
+2 Stars = moves made is MORE than 20 
+1 Stars = moves made is MORE than 30
 0 Stars = Doesn't meet any of the criterias above.
 
 

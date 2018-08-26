@@ -207,11 +207,14 @@ function checkedMactched() {
         let modalText = document.querySelector(".modal-text");
         modalText.innerHTML = `
             <strong>Congratulations! You Won!</strong>
-            <br/>
-            <br/>with ${moveCount} moves and ${star} Stars
-            <br/>
-            <strong>Time</strong>: ${getMinAndSecs(time)}
-            <br/> Wooooow!`;
+            <span class="lighter-text">
+                <br/>
+                <br/>With ${moveCount} moves and ${star} Stars
+                <br/>
+                <strong>Time</strong>: ${getMinAndSecs(time)}
+                <br/> Wooooow!
+            </span>
+            `;
 
         setTimeout(toggleModal, 1000);
         clearInterval(timing);

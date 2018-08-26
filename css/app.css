@@ -14,6 +14,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    color: #58646d;
 }
 
 body {
@@ -214,7 +215,7 @@ h1 {
     border-radius: 0.5rem;
     top: 50%;
     left: 50%;
-  }
+}
 
 
 .modal button{
@@ -236,37 +237,31 @@ h1 {
     cursor: pointer;
     border-radius: 50%;
     background-color: #02b3e4;
-  }
+}
 
-  .close-button:hover, .modal .btn:hover {
+.close-button:hover, .modal .btn:hover {
     background-color: #0789ad;
-  }
+}
 
-  .show-modal {
+.show-modal {
     opacity: 1;
     visibility: visible;
     transform: scale(1);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
-  }
-
-  .star-hide{
-      font-size: 0;
-  }
-
-  .close-button, .btn{
-      font-size: 16px;
-  }
-
-  .score-panel .stars {
-    
 }
 
-.restart{
-    
+.star-hide{
+    font-size: 0;
 }
+
+.close-button, .btn{
+    font-size: 16px;
+}
+
 
   @media screen and (min-width: 368px) {
     .game-stats{
 
     }
 } 
+

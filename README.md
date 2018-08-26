@@ -1,5 +1,6 @@
 # Match Memory Game
-Vanilla Js written match memory game for the browser
+
+Vanilla JS written match memory game for the browser
 
 ## Prerequisites
 

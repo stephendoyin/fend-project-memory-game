@@ -51,15 +51,15 @@ h1 {
  */
 
 .deck {
-    width: 280px;
-    min-height: 280px;
+    width: 17.5rem;
+    min-height: 17.5rem;
     background: -webkit-linear-gradient(290deg, #02ccba 0%, #aa7ecd 100%);
     background: -o-linear-gradient(290deg, #02ccba 0%, #aa7ecd 100%);
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 13px;
-    border-radius: 10px;
-    -webkit-box-shadow: 8px 10px 14px 0 rgba(46, 61, 73, 0.5);
-            box-shadow: 8px 10px 14px 0 rgba(46, 61, 73, 0.5);
+    padding: 0.8125rem;
+    border-radius: 0.625rem;
+    -webkit-box-shadow: 0.5rem 0.625rem 0.875rem 0 rgba(46, 61, 73, 0.5);
+            box-shadow: 0.5rem 0.625rem 0.875rem 0 rgba(46, 61, 73, 0.5);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -74,37 +74,37 @@ h1 {
     margin: 0 0 3em;
 }
 
-@media screen and (min-width: 368px) {
+@media screen and (min-width: 23rem) {
     .deck {
-        width: 340px;
-        min-height: 330px;
-        padding: 15px;
+        width: 21.25rem;
+        min-height: 20.625rem;
+        padding: 0.9375rem;
     }
 } 
 
-@media screen and (min-width: 440px) {
+@media screen and (min-width: 27.5rem) {
     .deck {
-        width: 410px;
-        min-height: 400px;
-        padding: 18px;
+        width: 25.625rem;
+        min-height: 25rem;
+        padding: 1.125rem;
     }
 } 
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 37.5rem) {
     .deck {
-        width: 570px;
-        min-height: 565px;
-        padding: 20px;
+        width: 35.625rem;
+        min-height: 35.3125rem;
+        padding: 1.25rem;
     }
 }
 
 .deck .card {
-    height: 53px;
-    width: 53px;
+    height: 3.3125rem;
+    width: 3.3125rem;
     background: #2e3d49;
     font-size: 0;
     color: #ffffff;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     cursor: pointer;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -115,32 +115,32 @@ h1 {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -webkit-box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-            box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    -webkit-box-shadow: 0.3125rem 0.125rem 1.25rem 0 rgba(46, 61, 73, 0.5);
+            box-shadow: 0.3125rem 0.125rem 1.25rem 0 rgba(46, 61, 73, 0.5);
     -webkit-transition: all .1s;
     -o-transition: all .1s;
     transition: all .1s;
     
 }
 
-@media screen and (min-width: 368px) {
+@media screen and (min-width: 23rem) {
     .deck .card {
-        height: 67px;
-        width: 67px;
+        height: 4.1875rem;
+        width: 4.1875rem;
     } 
 }
 
-@media screen and (min-width: 440px) {
+@media screen and (min-width: 27.5rem) {
     .deck .card {
-        height: 80px;
-        width: 80px;
+        height: 5rem;
+        width: 5rem;
     } 
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 37.5rem) {
     .deck .card {
-        height: 118px;
-        width: 118px;
+        height: 7.375rem;
+        width: 7.375rem;
     } 
 }
 .deck .card.open {
@@ -154,13 +154,13 @@ h1 {
 }
 
 .deck .card.show {
-    font-size: 33px;
+    font-size: 2.0625rem;
 }
 
 .deck .card.match {
     cursor: default;
     background: #02ccba;
-    font-size: 33px;
+    font-size: 2.0625rem;
     -webkit-transition: all .3s;
     -o-transition: all .3s;
     transition: all .3s;
@@ -169,7 +169,7 @@ h1 {
 .deck .card.miss-match {
     cursor: default;
     background: #cc5302;
-    font-size: 33px;
+    font-size: 2.0625rem;
 }
 
 .miss-anim {
@@ -227,14 +227,14 @@ h1 {
 
 .score-panel {
     text-align: left;
-    width: 345px;
-    margin-bottom: 10px;
+    width: 21.5625rem;
+    margin-bottom: 0.625rem;
 }
 
 .score-panel .stars {
-    margin-left: 30px;
+    margin-left: 1.875rem;
     display: inline-block;
-    margin: 0 5px 0 0;
+    margin: 0 0.3125rem 0 0;
 }
 
 .score-panel .stars li {
@@ -245,7 +245,7 @@ h1 {
 .score-panel .restart {
     float: right;
     cursor: pointer;
-    margin-right: 40px;
+    margin-right: 2.5rem;
 }
 
 .modal {
@@ -284,11 +284,11 @@ h1 {
 
 
 .modal button{
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem;
     color: #fff;
     background-color: #02b3e4;
     border: none;
-    border-radius: 2px;
+    border-radius: 0.125rem;
 }
 
 .close-button {
@@ -326,11 +326,11 @@ h1 {
 }
 
 .close-button, .btn{
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 
-  @media screen and (min-width: 368px) {
+  @media screen and (min-width: 23rem) {
     .game-stats{
 
     }

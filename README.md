@@ -18,7 +18,7 @@ Load the index.html file on your browser. Once loaded you can click any card fro
 [Match Memory Game](https://github.com/stephendoyin/fend-project-memory-game/)
 
 
-###Dependencies
+### Dependencies
 
 [Online Css Auto-Prefixer](https://autoprefixer.github.io/)
 

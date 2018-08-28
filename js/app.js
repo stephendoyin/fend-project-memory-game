@@ -1,24 +1,19 @@
 //list that holds all of your cards
+"use strict";
 
 let listOfCards = [
     "fa-diamond",
     "fa-paper-plane-o",
-    "fa-anchor",
     "fa-bolt",
     "fa-cube",
     "fa-anchor",
     "fa-leaf",
     "fa-bicycle",
-    "fa-diamond",
-    "fa-bomb",
-    "fa-leaf",
-    "fa-bomb",
-    "fa-bolt",
-    "fa-bicycle",
-    "fa-paper-plane-o",
-    "fa-cube"
-]
+    "fa-bomb"
+];
 
+//double the array
+listOfCards.push(...listOfCards);
 
 let openCards = [];
 let matchedCards = [];
@@ -35,15 +30,15 @@ function createCardHtml() {
     listOfCards = shuffle(listOfCards);
     let fragment = document.createDocumentFragment();
 
-    for (var x = 0; x < listOfCards.length; x++) {
+    for (let x = 0; x < listOfCards.length; x++) {
         let li = document.createElement("LI");
-        attr1 = document.createAttribute("class");
+        let attr1 = document.createAttribute("class");
         attr1.value = "card";
         li.setAttributeNode(attr1);
         let i = document.createElement("I");
-        attr3 = document.createAttribute("class");
-        attr3.value = "fa";
-        i.setAttributeNode(attr3);
+        let att2 = document.createAttribute("class");
+        att2.value = "fa";
+        i.setAttributeNode(att2);
         i.classList.add(listOfCards[x]);
         li.appendChild(i);
         fragment.appendChild(li);
@@ -66,7 +61,7 @@ restart.addEventListener("click", reset)
 function reset() {
     //reset card
     let cards = document.querySelectorAll(".card");
-    for (card of cards) {
+    for (let card of cards) {
         card.remove();
     }
     openCards = [];
@@ -81,7 +76,7 @@ function reset() {
     document.querySelector(".moves").innerHTML = moveCount;
     star = 3;
     let allStars = document.querySelectorAll(".fa-star");
-    for (oneStar of allStars) {
+    for (let oneStar of allStars) {
         oneStar.classList.remove("star-hide");
     }
 }
@@ -96,7 +91,7 @@ function reload() {
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
 
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -141,7 +136,7 @@ function openCard(e) {
     target.classList.add("open");
     openCards.push(cardName);
 
-    if (openCards.length > 1) {
+    if (openCards.length === 2) {
         if (openCards[0] === cardName) {
             lockedPositionOnMatch(cardName);
         } else {
@@ -156,7 +151,7 @@ function lockedPositionOnMatch(_cardName) {
 
     const cardClass = getClass(_cardName);
     let chosenCards = document.querySelectorAll(cardClass);
-    for (chosenCard of chosenCards) {
+    for (let chosenCard of chosenCards) {
         chosenCard.parentNode.setAttribute("class", "card")
         chosenCard.parentNode.classList.add("match", "match-anim");
         matchedCards.push(_cardName);
@@ -180,15 +175,17 @@ function removeFromOpen() {
 
     const openedCards = document.querySelectorAll(".open");
     for (let j = 0; j < 2; j++) {
-
         setTimeout(function () {
             openedCards[j].classList.add("miss-match");
             openedCards[j].classList.add("miss-anim");
         }, 200);
+    }
+    for (let openedCard of openedCards){
         setTimeout(function () {
-            openedCards[j].setAttribute("class", "card");
+            openedCard.setAttribute("class", "card");
         }, 700);
     }
+    
     openCards = [];
     moveCounter();
 
@@ -271,18 +268,14 @@ function getMinAndSecs(time) {
 //star rating 
 function starRating() {
 
-    if ((star === 3) && (moveCount > 13)) {
+    if ((star === 3) && (moveCount > 15)) {
         star--;
         let firstStar = document.querySelectorAll(".fa-star")[0];
         firstStar.classList.add("star-hide");
     } else if ((star === 2) && (moveCount > 20)) {
         star--;
         let secondStar = document.querySelectorAll(".fa-star")[1]
-        secondStar.classList.toggle("star-hide");
-    } else if ((star === 1) && (moveCount > 30)) {
-        star--;
-        let thirdStar = document.querySelectorAll(".fa-star")[2]
-        thirdStar.classList.toggle("star-hide");
+        secondStar.classList.add("star-hide");
     }
 
 }
